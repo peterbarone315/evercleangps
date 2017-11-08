@@ -9,10 +9,17 @@
   <p>
     Hello {{name}}, if you need to get in touch with me <a href="tel:+1-315-797-6111" class="button"> Click here</a> to call me. 
   </p>
+
   <p>
-    <button ion-button>Start this job</button>
-    
-   
+    <ion-item>
+  <ion-label>Today is</ion-label>
+  <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate"></ion-datetime>
+  
+</ion-item>
+  </p>
+  <p>Date time glitch iso time is GMT find adjustment</p>
+  <p>
+    <button ion-button color="secondary">Start this job</button>
     
     <button ion-button color="danger">Finish this job</button>
   </p>
