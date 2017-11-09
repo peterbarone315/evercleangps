@@ -5,9 +5,9 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Everclean Building Services -> DTS</h2>
+  <h4>Everclean Building Services -> DTS</h4>
   <p>
-    Hello {{name}}, if you need to get in touch with me <a href="tel:+1-315-797-6111" class="button"> Click here</a> to call me. 
+    Hello name, if you need to get in touch with me <a href="tel:+1-315-797-6111" class="button"> Click here</a> to call me. 
   </p>
 
   <p>
@@ -18,9 +18,25 @@
 </ion-item>
   </p>
   <p>Date time glitch iso time is GMT find adjustment</p>
-  <p>
-    <button ion-button color="secondary">Start this job</button>
-    
-    <button ion-button color="danger">Finish this job</button>
-  </p>
+
+  <ion-card>
+    <ion-card-header>
+      Your are at location
+    </ion-card-header>
+    <ion-card-content>
+      If you would like to begin your shift at this location please click Start this job.
+      <button ion-button full color="secondary">Start this job</button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      When your finished
+    </ion-card-header>
+    <ion-card-content>
+      Before you leave the location please click Job Complete.
+      <button ion-button full color="danger">Job Complete</button>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>
