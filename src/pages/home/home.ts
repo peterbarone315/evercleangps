@@ -22,11 +22,13 @@ export class HomePage {
       console.log(resp.coords.latitude+", "+resp.coords.longitude);
       this.locationlat = (resp.coords.latitude);
       this.locationlng = (resp.coords.longitude);
+        }
+    )
+
+    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
+    .then((result: NativeGeocoderReverseResult) => console.log(JSON.stringify(result)))
+    .catch((error: any) => console.log(error, "anything"));
     }
-
-  )}
-
-
     
 
   now = moment().format("dddd, MMMM Do YYYY"); 
