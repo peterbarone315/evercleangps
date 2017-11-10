@@ -6,38 +6,29 @@ import * as moment from 'moment';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 import { HTTP } from '@ionic-native/http';
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-        public lat;
-        public lon;
+  public locationlat;
+  public locationlng;
 
-  constructor(public navCtrl: NavController, private platform: Platform, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder) {
-
-    platform.ready().then(() => {
-      
-      geolocation.getCurrentPosition().then(pos => {
-        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-        this.lat = pos.coords.latitude;
-        this.lon = pos.coords.longitude
-      });
-
-      const watch = geolocation.watchPosition().subscribe(pos => {
-        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-      });
-
-      // to stop watching
-      watch.unsubscribe();
+  constructor(public navCtrl: NavController, public http: HTTP, private platform: Platform, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder, private _GEOCODE  : NativeGeocoder) {
     
-      
+    this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
+      console.log(resp.coords.latitude+", "+resp.coords.longitude);
+      this.locationlat = (resp.coords.latitude);
+      this.locationlng = (resp.coords.longitude);
     }
+
+  )}
+
+
     
-    )}
-  
-  
+
   now = moment().format("dddd, MMMM Do YYYY"); 
   nowTime = moment().format("h:mm:ss a")
 }

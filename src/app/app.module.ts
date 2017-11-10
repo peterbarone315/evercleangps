@@ -14,6 +14,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { GeocoderProvider } from '../providers/geocoder/geocoder';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Geolocation,
     NativeGeocoder,
     HTTP,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GeocoderProvider
   ]
 })
 export class AppModule {}
