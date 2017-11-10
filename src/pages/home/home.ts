@@ -18,14 +18,17 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public http: HTTP, private platform: Platform, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder, private _GEOCODE  : NativeGeocoder) {
     
+     platform.ready().then(() => {
+
     this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
       console.log(resp.coords.latitude+", "+resp.coords.longitude);
       this.locationlat = (resp.coords.latitude);
       this.locationlng = (resp.coords.longitude);
         }
     )
+  })
 
-    }
+ }
     
 
   now = moment().format("dddd, MMMM Do YYYY"); 
