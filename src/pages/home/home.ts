@@ -25,9 +25,6 @@ export class HomePage {
         }
     )
 
-    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
-    .then((result: NativeGeocoderReverseResult) => console.log(JSON.stringify(result)))
-    .catch((error: any) => console.log(error, "anything"));
     }
     
 
