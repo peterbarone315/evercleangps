@@ -6,6 +6,7 @@ import * as moment from 'moment';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 import { HTTP } from '@ionic-native/http';
 
+// ionic cordova run browser - use this
 
 @Component({
   selector: 'page-home',
@@ -16,9 +17,15 @@ export class HomePage {
   public locationlat;
   public locationlng;
 
-  constructor(public navCtrl: NavController, public http: HTTP, private platform: Platform, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder, private _GEOCODE  : NativeGeocoder) {
+  constructor(public navCtrl: NavController, public http: HTTP, private platform: Platform, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder) {
     
      platform.ready().then(() => {
+
+      this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
+      .then((result: NativeGeocoderReverseResult)=>{
+      console.log("working");
+  }).catch((error: any) => console.log(error));
+
 
     this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
       console.log(resp.coords.latitude+", "+resp.coords.longitude);
@@ -26,6 +33,7 @@ export class HomePage {
       this.locationlng = (resp.coords.longitude);
         }
     )
+
   })
 
  }
